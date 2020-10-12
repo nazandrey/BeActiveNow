@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Project.Scripts
 {
@@ -8,6 +9,8 @@ namespace _Project.Scripts
     {
         public float loseTimeout;
         public Moveable player;
+        public GameObject gameOverUi;
+        public Button gameOverButton;
 
         private Coroutine _timer;
 
@@ -28,6 +31,7 @@ namespace _Project.Scripts
             {
                 DestroyCurrTimer();
             }
+            gameOverButton.onClick.RemoveListener(SceneLoader.Instance.LoadFirstLevel);
         }
 
         private void StartTimer()
@@ -39,7 +43,8 @@ namespace _Project.Scripts
         {
             yield return new WaitForSeconds(loseTimeout);
             print("Lose");
-            SceneLoader.Instance.LoadFirstLevel();
+            gameOverUi.SetActive(true);
+            gameOverButton.onClick.AddListener(SceneLoader.Instance.LoadFirstLevel);
         }
 
         private void ResetTimer()
