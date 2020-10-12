@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 238994140}
   - component: {fileID: 238994142}
   - component: {fileID: 238994141}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,6 +782,7 @@ GameObject:
   - component: {fileID: 2025256624}
   - component: {fileID: 2025256627}
   - component: {fileID: 2025256628}
+  - component: {fileID: 2025256629}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -915,6 +916,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2025256629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025256623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167dddaf0e974105a7d626c183862458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSpeed: 100
 --- !u!1001 &243283993848044301
 PrefabInstance:
   m_ObjectHideFlags: 0
