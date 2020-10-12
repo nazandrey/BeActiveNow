@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d80a9f0de504c199fda3d3f4ce9a381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loseTimeout: 2
+  loseTimerConfig: {fileID: 11400000, guid: e71421987f3c2b74995551b6f9edb730, type: 2}
   player: {fileID: 2025256627}
   gameOverUi: {fileID: 674310575}
   gameOverButton: {fileID: 445923552}

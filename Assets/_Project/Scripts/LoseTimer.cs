@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using _Project.Scripts.Configs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ namespace _Project.Scripts
 {
     public class LoseTimer : MonoBehaviour
     {
-        public float loseTimeout;
+        public LoseTimerConfig loseTimerConfig;
         public Moveable player;
         public GameObject gameOverUi;
         public Button gameOverButton;
@@ -41,7 +42,7 @@ namespace _Project.Scripts
 
         private IEnumerator TimerCoroutine()
         {
-            yield return new WaitForSeconds(loseTimeout);
+            yield return new WaitForSeconds(loseTimerConfig.loseTimeout);
             print("Lose");
             gameOverUi.SetActive(true);
             gameOverButton.onClick.AddListener(SceneLoader.Instance.LoadFirstLevel);
