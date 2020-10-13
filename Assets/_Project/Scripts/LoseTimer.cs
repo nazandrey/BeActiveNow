@@ -9,6 +9,8 @@ namespace _Project.Scripts
 {
     public class LoseTimer : Timer
     {
+        public event Action<string> LoseConditionAdded; 
+        
         private Dictionary<string, bool> ResetConditionMet = new Dictionary<string, bool>();
 
         protected override void Awake()
@@ -53,6 +55,7 @@ namespace _Project.Scripts
             var playerActionName = playerAction.GetName();
             ResetConditions();
             ResetConditionMet.Add(playerActionName, false);
+            LoseConditionAdded?.Invoke(playerActionName);
         }
 
         private void OnPlayerActionActivated(string playerActionName)
