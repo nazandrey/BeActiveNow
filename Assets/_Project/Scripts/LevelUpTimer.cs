@@ -15,7 +15,7 @@ namespace _Project.Scripts
                 {
                     //show win
                     Debug.Log("Win");
-                    DestroyCurrTimer();
+                    GameOverEventRaiser.Instance.InvokeGameOver(true);
                 }
                 else
                 {

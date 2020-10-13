@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,10 +20,21 @@ namespace _Project.Scripts
         {
             base.OnDestroy();
 
-            foreach (var playerAction in PlayerActionsToUnsubscribe)
-                playerAction.Activated -= OnPlayerActionActivated;
+            UnsubscribePlayerActions();
             
             gameOverButton.onClick.RemoveListener(SceneLoader.Instance.LoadFirstLevel);
+        }
+
+        protected override void OnGameOver(bool isWin)
+        {
+            base.OnGameOver(isWin);
+            UnsubscribePlayerActions();
+        }
+
+        private void UnsubscribePlayerActions()
+        {
+            foreach (var playerAction in PlayerActionsToUnsubscribe)
+                playerAction.Activated -= OnPlayerActionActivated;
         }
 
         protected override IEnumerator TimerCoroutine()
@@ -31,6 +43,7 @@ namespace _Project.Scripts
             Debug.Log("Lose");
             gameOverUi.SetActive(true);
             gameOverButton.onClick.AddListener(SceneLoader.Instance.LoadFirstLevel);
+            GameOverEventRaiser.Instance.InvokeGameOver(false);
         }
 
         private void ResetTimer()

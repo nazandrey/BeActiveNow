@@ -10,6 +10,11 @@ namespace _Project.Scripts
 
         private Coroutine _timer;
 
+        private void Awake()
+        {
+            GameOverEventRaiser.GameOver += OnGameOver;
+        }
+        
         protected virtual void Start()
         {
             StartTimer();
@@ -19,6 +24,11 @@ namespace _Project.Scripts
         {
             if (_timer != null)
                 DestroyCurrTimer();
+        }
+
+        protected virtual void OnGameOver(bool isWin)
+        {
+            DestroyCurrTimer();
         }
 
         protected void StartTimer()
