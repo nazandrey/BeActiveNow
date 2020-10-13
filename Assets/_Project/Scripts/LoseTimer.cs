@@ -9,20 +9,19 @@ namespace _Project.Scripts
 {
     public class LoseTimer : Timer
     {
-        public GameObject gameOverUi;
-        public Button gameOverButton;
-
         private Dictionary<string, bool> ResetConditionMet = new Dictionary<string, bool>();
 
-        private List<PlayerAction> PlayerActionsToUnsubscribe = new List<PlayerAction>();
+        protected override void Awake()
+        {
+            base.Awake();
+            PlayerAction.Activated += OnPlayerActionActivated;
+        }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
 
             UnsubscribePlayerActions();
-            
-            gameOverButton.onClick.RemoveListener(SceneLoader.Instance.LoadFirstLevel);
         }
 
         protected override void OnGameOver(bool isWin)
@@ -33,16 +32,13 @@ namespace _Project.Scripts
 
         private void UnsubscribePlayerActions()
         {
-            foreach (var playerAction in PlayerActionsToUnsubscribe)
-                playerAction.Activated -= OnPlayerActionActivated;
+            PlayerAction.Activated -= OnPlayerActionActivated;
         }
 
         protected override IEnumerator TimerCoroutine()
         {
             yield return new WaitForSeconds(timerConfig.timeout);
             Debug.Log("Lose");
-            gameOverUi.SetActive(true);
-            gameOverButton.onClick.AddListener(SceneLoader.Instance.LoadFirstLevel);
             GameOverEventRaiser.Instance.InvokeGameOver(false);
         }
 
@@ -54,21 +50,28 @@ namespace _Project.Scripts
 
         public void AddLoseResetCondition(PlayerAction playerAction)
         {
-            var playerActionName = playerAction.GetType().Name;
-            playerAction.Activated += OnPlayerActionActivated;
-            PlayerActionsToUnsubscribe.Add(playerAction);
+            var playerActionName = playerAction.GetName();
+            ResetConditions();
             ResetConditionMet.Add(playerActionName, false);
         }
 
         private void OnPlayerActionActivated(string playerActionName)
         {
+            if (!ResetConditionMet.ContainsKey(playerActionName))
+                return;
+            
             ResetConditionMet[playerActionName] = true;
             if (ResetConditionMet.All(x => x.Value))
             {
-                ResetConditionMet = ResetConditionMet
-                    .ToDictionary(x => x.Key, x => false);
+                ResetConditions();
                 ResetTimer();
             }
+        }
+
+        private void ResetConditions()
+        {
+            ResetConditionMet = ResetConditionMet
+                .ToDictionary(x => x.Key, x => false);
         }
     }
 }

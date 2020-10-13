@@ -10,7 +10,7 @@ namespace _Project.Scripts
 
         private Coroutine _timer;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             GameOverEventRaiser.GameOver += OnGameOver;
         }
@@ -24,6 +24,7 @@ namespace _Project.Scripts
         {
             if (_timer != null)
                 DestroyCurrTimer();
+            GameOverEventRaiser.GameOver -= OnGameOver;
         }
 
         protected virtual void OnGameOver(bool isWin)

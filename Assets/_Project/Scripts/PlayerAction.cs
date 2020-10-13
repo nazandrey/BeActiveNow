@@ -5,11 +5,16 @@ namespace _Project.Scripts
 {
     public class PlayerAction : MonoBehaviour
     {
-        public event Action<string> Activated;
+        public static event Action<string> Activated;
+
+        public string GetName()
+        {
+            return GetType().Name;
+        }
         
         protected void InvokeActivated()
         {
-            Activated?.Invoke(GetType().Name);
+            Activated?.Invoke(GetName());
         }
     }
 }
