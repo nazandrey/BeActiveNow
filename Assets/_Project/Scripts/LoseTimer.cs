@@ -1,49 +1,34 @@
-﻿using System;
-using System.Collections;
-using _Project.Scripts.Configs;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Project.Scripts
 {
-    public class LoseTimer : MonoBehaviour
+    public class LoseTimer : Timer
     {
-        public LoseTimerConfig loseTimerConfig;
-        public Moveable player;
         public GameObject gameOverUi;
         public Button gameOverButton;
 
-        private Coroutine _timer;
+        private Dictionary<string, bool> ResetConditionMet = new Dictionary<string, bool>();
 
-        private void Start()
-        {
-            StartTimer();
-        }
+        private List<PlayerAction> PlayerActionsToUnsubscribe = new List<PlayerAction>();
 
-        private void Update()
+        protected override void OnDestroy()
         {
-            if (player.IsMoving)
-                ResetTimer();
-        }
+            base.OnDestroy();
 
-        private void OnDestroy()
-        {
-            if (_timer != null)
-            {
-                DestroyCurrTimer();
-            }
+            foreach (var playerAction in PlayerActionsToUnsubscribe)
+                playerAction.Activated -= OnPlayerActionActivated;
+            
             gameOverButton.onClick.RemoveListener(SceneLoader.Instance.LoadFirstLevel);
         }
 
-        private void StartTimer()
+        protected override IEnumerator TimerCoroutine()
         {
-            _timer = StartCoroutine(TimerCoroutine());
-        }
-
-        private IEnumerator TimerCoroutine()
-        {
-            yield return new WaitForSeconds(loseTimerConfig.loseTimeout);
-            print("Lose");
+            yield return new WaitForSeconds(timerConfig.timeout);
+            Debug.Log("Lose");
             gameOverUi.SetActive(true);
             gameOverButton.onClick.AddListener(SceneLoader.Instance.LoadFirstLevel);
         }
@@ -54,10 +39,23 @@ namespace _Project.Scripts
             StartTimer();
         }
 
-        private void DestroyCurrTimer()
+        public void AddLoseResetCondition(PlayerAction playerAction)
         {
-            StopCoroutine(_timer);
-            _timer = null;
+            var playerActionName = playerAction.GetType().Name;
+            playerAction.Activated += OnPlayerActionActivated;
+            PlayerActionsToUnsubscribe.Add(playerAction);
+            ResetConditionMet.Add(playerActionName, false);
+        }
+
+        private void OnPlayerActionActivated(string playerActionName)
+        {
+            ResetConditionMet[playerActionName] = true;
+            if (ResetConditionMet.All(x => x.Value))
+            {
+                ResetConditionMet = ResetConditionMet
+                    .ToDictionary(x => x.Key, x => false);
+                ResetTimer();
+            }
         }
     }
 }

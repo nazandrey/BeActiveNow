@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e89dc53ff4e84121817a0c8036047646, type: 3}
-  m_Name: LoseTimerConfig
+  m_Name: Lose
   m_EditorClassIdentifier: 
-  loseTimeout: 2
+  timeout: 2

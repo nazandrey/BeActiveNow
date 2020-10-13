@@ -3,12 +3,10 @@ using UnityEngine;
 
 namespace _Project.Scripts
 {
-    public class Moveable : MonoBehaviour
+    public class Moveable : PlayerAction
     {
         public float speed;
         public float moveThreshold;
-
-        public bool IsMoving { get; private set; }
 
         private void FixedUpdate()
         {
@@ -16,12 +14,8 @@ namespace _Project.Scripts
             
             if (Math.Abs(translation) > moveThreshold)
             {
-                IsMoving = true;
+                InvokeActivated();
                 transform.Translate(translation, 0, 0);
-            }
-            else
-            {
-                IsMoving = false;
             }
         }
     }

@@ -4,7 +4,7 @@ using Vector2 = UnityEngine.Vector2;
 namespace _Project.Scripts
 {
     [RequireComponent(typeof(Rigidbody2D))] 
-    public class Jumpable : MonoBehaviour
+    public class Jumpable : PlayerAction
     {
         public float jumpSpeed;
         
@@ -27,6 +27,7 @@ namespace _Project.Scripts
         {
             if (Input.GetButtonDown("Jump") && _isGrounded)
             {
+                InvokeActivated();
                 _isGrounded = false;
                 _rigidbody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             }
