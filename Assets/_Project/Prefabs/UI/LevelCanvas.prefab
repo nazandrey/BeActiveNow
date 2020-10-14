@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 5826087871371992464}
   - component: {fileID: 5618073898303249352}
   m_Layer: 5
-  m_Name: TwoActionsTutorial
+  m_Name: DetailedTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,6 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseSetter: {fileID: 1165289267396482875}
   root: {fileID: 5330009989464919516}
+  text: {fileID: 7015457909989385189}
 --- !u!1 &5330009989464919516
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +698,7 @@ GameObject:
   - component: {fileID: 8769929085078237655}
   - component: {fileID: 2565104167145576363}
   m_Layer: 5
-  m_Name: GeneralTutorial
+  m_Name: PersistantTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
