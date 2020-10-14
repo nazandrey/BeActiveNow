@@ -6,7 +6,7 @@ namespace _Project.Scripts
 {
     public class TutorialTextChanger : MonoBehaviour
     {
-        public Text textPrefab;
+        public TutorialActionContainerUi tutorialActionContainerUi;
         public Transform textsRoot;
         public GameObject connectorObject;
 
@@ -25,8 +25,8 @@ namespace _Project.Scripts
 
         private void OnLoseConditionAdded(string playerActionName)
         {
-            var textObject = Instantiate(textPrefab, textsRoot, false);
-            textObject.text = GetTutorialText(playerActionName);
+            var tutorialActionContainerUiObject = Instantiate(tutorialActionContainerUi, textsRoot, false);
+            tutorialActionContainerUiObject.Init(GetTutorialText(playerActionName), _loseTimer.timerConfig.timeout, playerActionName);
             connectorObject.SetActive(textsRoot.childCount > 1);
         }
 
