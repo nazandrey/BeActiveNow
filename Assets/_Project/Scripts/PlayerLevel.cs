@@ -9,7 +9,7 @@ namespace _Project.Scripts
         public event Action<int> LevelUp;
 
         public int CurrLevel { get; private set; } = 0;
-        public int MaxLevel { get; private set; } = 1;
+        private int MaxLevel { get; set; } = -1;
         public bool IsMaxLevel => CurrLevel == MaxLevel;
 
         private PlayerLevel(){}
@@ -19,6 +19,11 @@ namespace _Project.Scripts
             Debug.Log("UpLevel from " + CurrLevel + " to " + (CurrLevel + 1));
             CurrLevel++;
             LevelUp?.Invoke(CurrLevel);
+        }
+
+        public void SetMaxLevel(int maxLevel)
+        {
+            MaxLevel = maxLevel;
         }
         
         public void Reset()

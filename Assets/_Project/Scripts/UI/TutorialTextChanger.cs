@@ -37,7 +37,9 @@ namespace _Project.Scripts
                 case nameof(Moveable):
                     return "Move <= =>";
                 case nameof(Jumpable):
-                    return "Jump";
+                    return "Jump (space)";
+                case nameof(LeftMouseClickAction):
+                    return "Sing (LMB)";
                 default:
                     throw new ArgumentException(playerActionName);
             }

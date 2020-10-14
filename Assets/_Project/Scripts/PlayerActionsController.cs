@@ -11,6 +11,7 @@ namespace _Project.Scripts
         private void Awake()
         {
             PlayerLevel.Instance.Reset();
+            PlayerLevel.Instance.SetMaxLevel(PlayerActions.Length - 1);
             PlayerLevel.Instance.LevelUp += OnLevelUp;
         }
 
