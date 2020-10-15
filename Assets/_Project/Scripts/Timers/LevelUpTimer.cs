@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using _Project.Scripts.Configs;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Project.Scripts
 {
     public class LevelUpTimer : Timer
     {
+        public LevelUpSlider slider;
+        
+        protected override void Start()
+        {
+            base.Start();
+            slider.Init(timerConfig.timeout);
+        }
+        
         protected override IEnumerator TimerCoroutine()
         {
             while (true)
@@ -20,6 +29,7 @@ namespace _Project.Scripts
                 else
                 {
                     PlayerLevel.Instance.UpLevel();
+                    slider.Init(timerConfig.timeout);
                 }
             }
         }
