@@ -11,6 +11,7 @@ namespace _Project.Scripts
 
         public void InvokeGameOver(bool isWin)
         {
+            AudioManager.Instance.Play(isWin ? "Win" : "Lose");
             GameOver?.Invoke(isWin);
         }
     }

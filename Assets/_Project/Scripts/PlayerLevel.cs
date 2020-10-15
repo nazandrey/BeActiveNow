@@ -18,6 +18,7 @@ namespace _Project.Scripts
         {
             Debug.Log("UpLevel from " + CurrLevel + " to " + (CurrLevel + 1));
             CurrLevel++;
+            AudioManager.Instance.Play("LevelUp");
             LevelUp?.Invoke(CurrLevel);
         }
 

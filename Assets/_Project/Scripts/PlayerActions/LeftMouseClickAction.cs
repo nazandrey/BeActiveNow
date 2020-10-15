@@ -7,8 +7,10 @@ namespace _Project.Scripts
     {
         private void Update()
         {
+            //Check that game is started
             if (Input.GetMouseButtonDown(0))
             {
+                AudioManager.Instance.Play("Sing2");
                 InvokeActivated();
             }
         }

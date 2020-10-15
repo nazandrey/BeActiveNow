@@ -28,6 +28,7 @@ public class PauseSetter : MonoBehaviour
     public void PauseToggle()
     {
         ApplyPause(!_paused);
+        AudioManager.Instance.Play(_paused ? "Pause" : "Unpause");
     }
 
     public void Pause()

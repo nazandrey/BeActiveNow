@@ -16,6 +16,7 @@ namespace _Project.Scripts
             {
                 InvokeActivated();
                 transform.Translate(translation, 0, 0);
+                AudioManager.Instance.Play("Steps4");
             }
         }
     }

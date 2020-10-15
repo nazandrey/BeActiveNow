@@ -48,20 +48,27 @@ public class AudioManager : SingletonDestroyable<AudioManager>
         return audio.clip.length;
     }
 
+    private Dictionary<string, Coroutine> soundCoroutines = new Dictionary<string, Coroutine>();
     public void Play(string soundName)
     {
+        if (soundCoroutines.ContainsKey(soundName))
+            return;
         var sound = gameSounds.FirstOrDefault(gameSound => gameSound.name == soundName);
         if (sound == null)
         {
             Debug.LogWarning($"Звук с наименованием {soundName} не найден");
             return;
         }
-        StartCoroutine(PlayOneShotCoroutine(sound));
+
+        soundCoroutines.Add(soundName, StartCoroutine(PlayOneShotCoroutine(sound)));
     }
 
     private IEnumerator PlayOneShotCoroutine(AudioSource sound)
     {
         sound.PlayOneShot(sound.clip);
         yield return new WaitForSeconds(sound.clip.length);
+        StopCoroutine(soundCoroutines[sound.name]);
+        soundCoroutines[sound.name] = null;
+        soundCoroutines.Remove(sound.name);
     }
 }
