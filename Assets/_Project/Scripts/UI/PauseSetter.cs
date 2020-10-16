@@ -10,6 +10,8 @@ public class PauseSetter : MonoBehaviour
 
     public Sprite imagePaused;
     public Sprite imageUnpaused;
+
+    public Toggle toggle;
     
     private bool _paused = false;
     private Image _image;
@@ -18,6 +20,11 @@ public class PauseSetter : MonoBehaviour
     {
         _image = GetComponent<Image>();
         GameOverEventRaiser.GameOver += OnGameOver;
+    }
+
+    private void Start()
+    {
+        Unpause();
     }
 
     private void OnDestroy()
@@ -38,7 +45,7 @@ public class PauseSetter : MonoBehaviour
     }
 
     public void Pause()
-    {       
+    {
         ApplyPause(true);
     }
     
@@ -49,6 +56,9 @@ public class PauseSetter : MonoBehaviour
 
     private void ApplyPause(bool paused)
     {
+        if (paused)
+            toggle.isOn = PlayerPrefs.GetInt(DetailedTutorialUi.TutorialHidePrefsKey) == 0;
+
         _paused = paused;
         _image.sprite = _paused ? imagePaused : imageUnpaused;
         Time.timeScale = paused ? 0 : 1;

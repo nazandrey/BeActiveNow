@@ -10,7 +10,7 @@ namespace _Project.Scripts
         public GameObject root;
         public Text text;
 
-        private const string TutorialHidePrefsKey = nameof(TutorialHidePrefsKey);
+        public const string TutorialHidePrefsKey = nameof(TutorialHidePrefsKey);
 
         private void Awake()
         {
@@ -43,7 +43,7 @@ namespace _Project.Scripts
                 return;
 
             ShowTutorialTextOnly(currLevel);
-                
+
             pauseSetter.Pause();
             pauseSetter.gameObject.SetActive(false);
         }

@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -238,12 +238,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _Project.Scripts.PlaySound, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadChoiceMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1126,6 +1126,7 @@ MonoBehaviour:
   pauseOverlay: {fileID: 7807476414117320667}
   imagePaused: {fileID: -5731396717161615682, guid: 5b06f4729c3e9fd4fa1a82ef8b77721d, type: 3}
   imageUnpaused: {fileID: 1131935511247659663, guid: 5b06f4729c3e9fd4fa1a82ef8b77721d, type: 3}
+  toggle: {fileID: 7766314675748776184}
 --- !u!1 &7807476414117320667
 GameObject:
   m_ObjectHideFlags: 0
