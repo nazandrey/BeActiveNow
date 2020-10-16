@@ -15,6 +15,7 @@ namespace _Project.Scripts
 
         protected override void Awake()
         {
+            timerConfig = DifficultySetter.Instance.GetCurrLoseTimeConfig();
             base.Awake();
             PlayerAction.Activated += OnPlayerActionActivated;
         }

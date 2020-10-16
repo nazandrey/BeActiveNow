@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bea9dc1d0241a5bb2fb556318f652b, type: 3}
+  m_Name: Hard
+  m_EditorClassIdentifier: 
+  loseTimerConfig: {fileID: 11400000, guid: 58f79f1257ec2244386f0b7ef1d5d348, type: 2}
+  levelUpConfig: {fileID: 11400000, guid: 579616fb546e5534db4a2a7a6baaba5c, type: 2}

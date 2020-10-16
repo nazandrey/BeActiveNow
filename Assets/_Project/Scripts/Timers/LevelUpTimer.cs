@@ -8,11 +8,17 @@ namespace _Project.Scripts
     public class LevelUpTimer : Timer
     {
         public LevelUpSlider slider;
-        
+
+        protected override void Awake()
+        {
+            timerConfig = DifficultySetter.Instance.GetCurrLevelUpTimeConfig(PlayerLevel.Instance.CurrLevel);
+            base.Awake();
+        }
+
         protected override void Start()
         {
-            base.Start();
             slider.Init(timerConfig.timeout);
+            base.Start();
         }
         
         protected override IEnumerator TimerCoroutine()
@@ -27,6 +33,7 @@ namespace _Project.Scripts
                 else
                 {
                     PlayerLevel.Instance.UpLevel();
+                    timerConfig = DifficultySetter.Instance.GetCurrLevelUpTimeConfig(PlayerLevel.Instance.CurrLevel);
                     slider.Init(timerConfig.timeout);
                 }
             }

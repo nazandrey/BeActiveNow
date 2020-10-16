@@ -6,6 +6,7 @@ namespace _Project.Scripts
 {
     public abstract class Timer : MonoBehaviour
     {
+        [HideInInspector]
         public TimerConfig timerConfig;
 
         private Coroutine _timer;
