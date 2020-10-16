@@ -40,6 +40,10 @@ namespace _Project.Scripts
                     return "Jump (space)";
                 case nameof(LeftMouseClickAction):
                     return "Sing (LMB)";
+                case nameof(RightMouseClickAction):
+                    return "Snap (RMB)";
+                case nameof(KeyPressAction):
+                    return "Press P";
                 default:
                     throw new ArgumentException(playerActionName);
             }

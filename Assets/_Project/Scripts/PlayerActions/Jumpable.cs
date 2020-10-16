@@ -25,12 +25,15 @@ namespace _Project.Scripts
 
         private void Update()
         {
-            if (Input.GetButtonDown("Jump") && _isGrounded)
+            if (Input.GetButtonDown("Jump"))
             {
-                AudioManager.Instance.Play("Jump");
                 InvokeActivated();
-                _isGrounded = false;
-                _rigidbody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                if (_isGrounded)
+                {
+                    AudioManager.Instance.Play("Jump");
+                    _isGrounded = false;
+                    _rigidbody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                }
             }
         }
     }
