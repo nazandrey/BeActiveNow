@@ -8,18 +8,28 @@ namespace _Project.Scripts
     {
         public Color fromColor;
         public Color toColor;
+        public Color sunFromColor;
+        public Color sunToColor;
         public Image fillImage;
         public RectTransform handle;
         
         private float _progressTimeout;
         private float _currProgress;
+        private SpriteRenderer _sprite;
+        private Image _sunImage;
         
         public void Init(float progressTimeout)
         {
             _currProgress = 0;
             _progressTimeout = progressTimeout;
         }
-        
+
+        private void Awake()
+        {
+            _sprite = GameObject.FindWithTag("ProgressBar").GetComponent<SpriteRenderer>();
+            _sunImage = handle.GetComponent<Image>();
+        }
+
         private void Update()
         {
             if (_currProgress < _progressTimeout)
@@ -28,7 +38,8 @@ namespace _Project.Scripts
                 var progressNormalized = _currProgress / _progressTimeout;
                 fillImage.fillAmount = progressNormalized;
                 fillImage.color = Color.LerpUnclamped(fromColor, toColor, progressNormalized);
-                Camera.main.backgroundColor = Color.LerpUnclamped(fromColor, toColor, progressNormalized);
+                _sprite.color = Color.LerpUnclamped(fromColor, toColor, progressNormalized);
+                _sunImage.color = Color.LerpUnclamped(sunFromColor, sunToColor, progressNormalized);
                 handle.anchorMin = new Vector2(progressNormalized, handle.anchorMin.y);
                 handle.anchorMax = new Vector2(progressNormalized, handle.anchorMax.y);
             }

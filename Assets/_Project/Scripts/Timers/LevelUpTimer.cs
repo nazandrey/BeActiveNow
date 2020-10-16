@@ -22,8 +22,6 @@ namespace _Project.Scripts
                 yield return new WaitForSeconds(timerConfig.timeout);
                 if (PlayerLevel.Instance.IsMaxLevel)
                 {
-                    //show win
-                    Debug.Log("Win");
                     GameOverEventRaiser.Instance.InvokeGameOver(true);
                 }
                 else

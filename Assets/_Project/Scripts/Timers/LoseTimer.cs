@@ -40,7 +40,6 @@ namespace _Project.Scripts
         protected override IEnumerator TimerCoroutine()
         {
             yield return new WaitForSeconds(timerConfig.timeout);
-            Debug.Log("Lose");
             GameOverEventRaiser.Instance.InvokeGameOver(false);
         }
 
