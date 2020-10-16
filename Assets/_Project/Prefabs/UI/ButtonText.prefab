@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 976713745514957500, guid: 407de7bf56b8f38458bf5fb42aa7e928, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 26
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 976713745514957500, guid: 407de7bf56b8f38458bf5fb42aa7e928, type: 3}
       propertyPath: m_FontData.m_MinSize
@@ -35,9 +35,13 @@ PrefabInstance:
       propertyPath: m_Text
       value: Restart
       objectReference: {fileID: 0}
+    - target: {fileID: 976713745514957500, guid: 407de7bf56b8f38458bf5fb42aa7e928, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 978315898732013700, guid: 407de7bf56b8f38458bf5fb42aa7e928, type: 3}
       propertyPath: m_Name
-      value: Text
+      value: ButtonText
       objectReference: {fileID: 0}
     - target: {fileID: 5297257234487353842, guid: 407de7bf56b8f38458bf5fb42aa7e928, type: 3}
       propertyPath: m_LocalPosition.x

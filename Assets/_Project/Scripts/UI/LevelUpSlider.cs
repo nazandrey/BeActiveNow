@@ -28,6 +28,7 @@ namespace _Project.Scripts
                 var progressNormalized = _currProgress / _progressTimeout;
                 fillImage.fillAmount = progressNormalized;
                 fillImage.color = Color.LerpUnclamped(fromColor, toColor, progressNormalized);
+                Camera.main.backgroundColor = Color.LerpUnclamped(fromColor, toColor, progressNormalized);
                 handle.anchorMin = new Vector2(progressNormalized, handle.anchorMin.y);
                 handle.anchorMax = new Vector2(progressNormalized, handle.anchorMax.y);
             }

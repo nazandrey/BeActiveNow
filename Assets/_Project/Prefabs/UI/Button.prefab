@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8952725274984367097}
   - component: {fileID: 777717155565187776}
   - component: {fileID: 3121292102704391342}
+  - component: {fileID: 5635903420699539976}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -67,8 +68,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 526914077640885874, guid: 7b0a272c3a040234790f6fb5d77e1a31, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -120,18 +121,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 5635903420699539976}
+        m_TargetAssemblyTypeName: _Project.Scripts.PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: ButtonClick
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5635903420699539976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323960705618135476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87c7ad76b664a05a14918b59659d6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6834603522247614915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,6 +152,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7206612555536981035}
     m_Modifications:
+    - target: {fileID: 442680059256122542, guid: c476fad551b97144db1d0f3ad1140d55, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 442680059256122542, guid: c476fad551b97144db1d0f3ad1140d55, type: 3}
+      propertyPath: m_Text
+      value: Text
+      objectReference: {fileID: 0}
     - target: {fileID: 448919539417927318, guid: c476fad551b97144db1d0f3ad1140d55, type: 3}
       propertyPath: m_Name
       value: ButtonText
