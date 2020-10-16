@@ -10,6 +10,8 @@ namespace _Project.Scripts
         public GameObject root;
         public Text text;
 
+        private const string TutorialHidePrefsKey = nameof(TutorialHidePrefsKey);
+
         private void Awake()
         {
             PlayerLevel.Instance.LevelUp += OnLevelUp;
@@ -37,6 +39,17 @@ namespace _Project.Scripts
 
         private void ShowTutorialText(int currLevel)
         {
+            if (PlayerPrefs.GetInt(TutorialHidePrefsKey) == 1)
+                return;
+
+            ShowTutorialTextOnly(currLevel);
+                
+            pauseSetter.Pause();
+            pauseSetter.gameObject.SetActive(false);
+        }
+        
+        private void ShowTutorialTextOnly(int currLevel)
+        {
             if (currLevel == 0)
             {
                 text.text =
@@ -49,9 +62,13 @@ namespace _Project.Scripts
             }
 
             text.text += "\n\nNod if you understand";
-            pauseSetter.Pause();
-            pauseSetter.gameObject.SetActive(false);
             root.SetActive(true);
+        }
+        
+        public void ToggleTutorial(bool isShow)
+        {
+            PlayerPrefs.SetInt(TutorialHidePrefsKey, isShow ? 0 : 1);
+            PlayerPrefs.Save();
         }
 
         public void OnTutorialCompleted()
