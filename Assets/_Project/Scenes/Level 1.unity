@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 0.8490566, g: 0.10012458, b: 0.14753565, a: 1}
-  m_Intensity: 1.29
+  m_Intensity: 6.75
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 53bdf93c00000000
   m_LightCookieSprite: {fileID: 0}
@@ -1906,11 +1906,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448902751002974644, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
       propertyPath: m_Color.g
-      value: 0.99939966
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2448902751002974644, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
       propertyPath: m_Color.b
-      value: 0.6556604
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448902751002974644, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 065606f48d563644fa9a0f9724b1db0e, type: 3}
+    - target: {fileID: 2448902751002974644, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6156863
       objectReference: {fileID: 0}
     - target: {fileID: 2828632766841755825, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
       propertyPath: m_IsActive
@@ -1920,6 +1928,54 @@ PrefabInstance:
       propertyPath: light
       value: 
       objectReference: {fileID: 1545320020}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 49426251}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: bgFromColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: bgFromColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: bgFromColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: bgFromColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: bgToColor.r
+      value: 0.6320754
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: bgToColor.g
+      value: 0.5108157
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: bgToColor.b
+      value: 0.48001954
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: bgToColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: sunToColor.g
+      value: 0.46472234
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: sunFromColor.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944692926134434450, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
+      propertyPath: sunToColor.a
+      value: 0.49803922
+      objectReference: {fileID: 0}
     - target: {fileID: 2968831785254044877, guid: 98e3829b03d5fdf45a2e4daad04eb344, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0

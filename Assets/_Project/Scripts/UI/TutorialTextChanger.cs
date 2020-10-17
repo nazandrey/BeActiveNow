@@ -26,7 +26,7 @@ namespace _Project.Scripts
         private void OnLoseConditionAdded(string playerActionName)
         {
             var tutorialActionContainerUiObject = Instantiate(tutorialActionContainerUi, textsRoot, false);
-            tutorialActionContainerUiObject.Init(GetTutorialText(playerActionName), _loseTimer.timerConfig.timeout, playerActionName);
+            tutorialActionContainerUiObject.Init(GetTutorialText(playerActionName), _loseTimer.timerConfig.timeout - 0.1f, playerActionName);
             connectorObject.SetActive(textsRoot.childCount > 1);
         }
 
