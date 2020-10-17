@@ -54,7 +54,7 @@ namespace _Project.Scripts
             {
                 text.text =
                     "1. If you do nothing you'll fall into deep thinking and lose after some time\n" +
-                    "2. Do action in the top (press spacebar, it resets lose timer for this action) and to seize the day\n" +
+                    "2. Do action in the top (press spacebar, it resets lose timer for this action) to seize the day\n" +
                     "3. Sun going from left to right shows your progress, in the end you'll level up";
             }
             else if (currLevel == 1)
