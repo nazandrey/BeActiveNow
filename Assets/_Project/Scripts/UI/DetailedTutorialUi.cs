@@ -53,12 +53,14 @@ namespace _Project.Scripts
             if (currLevel == 0)
             {
                 text.text =
-                    "Do action above to avoid deep thinking and to seize the day";
+                    "1. If you do nothing you'll fall into deep thinking and lose after some time\n" +
+                    "2. Do action in the top (press spacebar) to reset lose timer and to seize the day\n" +
+                    "3. Sun going from left to right shows your progress, in the end you'll level up";
             }
             else if (currLevel == 1)
             {
                 text.text =
-                    "Now you need to do ALL actions above (it has reset timer) to seize the day";
+                    "Now you need to do ALL actions in the top (press spacebar AND Y, it has reset timer) to seize the day";
             }
 
             text.text += "\n\nNod if you understand";

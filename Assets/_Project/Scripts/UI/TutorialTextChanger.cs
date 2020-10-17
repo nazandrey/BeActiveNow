@@ -35,15 +35,15 @@ namespace _Project.Scripts
             switch (playerActionName)
             {
                 case nameof(Moveable):
-                    return "Move <= =>";
+                    return "Move (<- ->)";
                 case nameof(Jumpable):
                     return "Jump (space)";
                 case nameof(LeftMouseClickAction):
-                    return "Croon (LMB)";
-                case nameof(RightMouseClickAction):
-                    return "Snap (RMB)";
+                    return "Snap (click)";
+                case nameof(YAction):
+                    return "Na-na-na (Press Y)";
                 case nameof(KeyPressAction):
-                    return "Press P";
+                    return "Push (Press P)";
                 default:
                     throw new ArgumentException(playerActionName);
             }

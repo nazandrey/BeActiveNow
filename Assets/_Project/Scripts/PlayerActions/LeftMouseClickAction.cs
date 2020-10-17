@@ -10,7 +10,7 @@ namespace _Project.Scripts
             //Check that game is started
             if (Input.GetMouseButtonDown(0))
             {
-                AudioManager.Instance.PlaySing();
+                AudioManager.Instance.Play("Snap2");
                 InvokeActivated();
             }
         }

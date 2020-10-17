@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89dc53ff4e84121817a0c8036047646, type: 3}
   m_Name: LevelUpNormal
   m_EditorClassIdentifier: 
-  timeout: 4
+  timeout: 6

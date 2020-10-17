@@ -15,7 +15,6 @@ namespace _Project.Scripts
 
         protected override void Awake()
         {
-            timerConfig = DifficultySetter.Instance.GetCurrLoseTimeConfig();
             base.Awake();
             PlayerAction.Activated += OnPlayerActionActivated;
         }
@@ -40,6 +39,7 @@ namespace _Project.Scripts
 
         protected override IEnumerator TimerCoroutine()
         {
+            timerConfig = DifficultySetter.Instance.GetCurrLoseTimeConfig();
             yield return new WaitForSeconds(timerConfig.timeout);
             GameOverEventRaiser.Instance.InvokeGameOver(false);
         }
@@ -54,7 +54,7 @@ namespace _Project.Scripts
         {
             var playerActionName = playerAction.GetName();
             ResetConditions();
-            ResetConditionMet.Add(playerActionName, false);
+            ResetConditionMet.Add(playerActionName, true);
             LoseConditionAdded?.Invoke(playerActionName);
         }
 
