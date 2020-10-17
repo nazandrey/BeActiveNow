@@ -89,7 +89,7 @@ public class AudioManager : SingletonDestroyable<AudioManager>
     private IEnumerator PlayOneShotCoroutine(AudioSource sound)
     {
         sound.PlayOneShot(sound.clip);
-        yield return new WaitForSeconds(sound.clip.length);
+        yield return new WaitForSecondsRealtime(sound.clip.length);
         StopCoroutine(soundCoroutines[sound.name]);
         soundCoroutines[sound.name] = null;
         soundCoroutines.Remove(sound.name);
