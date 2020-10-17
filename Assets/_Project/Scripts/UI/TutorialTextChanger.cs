@@ -39,7 +39,7 @@ namespace _Project.Scripts
                 case nameof(Jumpable):
                     return "Jump (space)";
                 case nameof(LeftMouseClickAction):
-                    return "Sing (LMB)";
+                    return "Croon (LMB)";
                 case nameof(RightMouseClickAction):
                     return "Snap (RMB)";
                 case nameof(KeyPressAction):
